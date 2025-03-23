@@ -1,0 +1,9 @@
+name: SimpleScoreboard
+version: '${version}'
+main: cc.happyareabean.simplescoreboard.SimpleScoreBoard
+api-version: '1.21'
+authors: [ HappyAreaBean ]
+website: https://happyareabean.cc
+description: A really simple scoreboard plugin, just for the simplicity.
+softdepend:
+  - PlaceholderAPI

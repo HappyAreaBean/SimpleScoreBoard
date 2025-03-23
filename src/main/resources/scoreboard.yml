@@ -1,0 +1,41 @@
+# ----------------------------------------------------------------------------------------
+#      __ _                 _      __                    _                         _
+#    / _(_)_ __ ___  _ __ | | ___/ _\ ___ ___  _ __ ___| |__   ___   __ _ _ __ __| |
+#    \ \| | '_ ` _ \| '_ \| |/ _ \ \ / __/ _ \| '__/ _ \ '_ \ / _ \ / _` | '__/ _` |
+#    _\ \ | | | | | | |_) | |  __/\ \ (_| (_) | | |  __/ |_) | (_) | (_| | | | (_| |
+#    \__/_|_| |_| |_| .__/|_|\___\__/\___\___/|_|  \___|_.__/ \___/ \__,_|_|  \__,_|
+#                   |_|
+# ----------------------------------------------------------------------------------------
+#
+#     A really simple scoreboard plugin, just for the simplicity. by HappyAreaBean :)
+#
+# ----------------------------------------------------------------------------------------
+#
+# - If you have PlaceholderAPI installed, the PlaceholderAPI is supported.
+# - Only MiniMessage format is supported by SimpleScoreboard (https://docs.advntr.dev/minimessage/format.html)
+#
+# ----------------------------------------------------------------------------------------
+
+# Scoreboard title and lines
+title: <gradient:#20BDFF:#A5FECB><b>SimpleScoreboard</b></gradient>
+lines:
+  - ''
+  - '<b><color:#eaff03>Profile'
+  - ' <white>● <gray>Name: <white>%player_name%'
+  - ' <white>● <gray>Rank: <white>%vault_rank%'
+  - ' <white>● <gray>Ping: <white>%player_ping%'
+  - ''
+  - '<b><color:#eaff03>Server'
+  - ' <white>● <gray>Lobby: <white>#1'
+  - ' <white>● <gray>Players: <white>%bungee_total%'
+  - ''
+  - '<gradient:#20BDFF:#A5FECB>ᴍᴀᴅᴇ ᴡɪᴛʜ ❤ ʙʏ'
+  - '  <gradient:#20BDFF:#A5FECB>ʜᴀᴘᴘʏᴀʀᴇᴀʙᴇᴀɴ'
+
+# Update interval for the scoreboard
+# In tick, 20 ticks = 1 second
+update-interval: 20
+
+# DO NOT TOUCH!
+# Changing this might lead to potentially destructive actions and loss of content.
+config-version: 1
