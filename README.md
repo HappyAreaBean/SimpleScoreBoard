@@ -1,7 +1,7 @@
 <h1 align="center">
   <br>
   <a href="https://go.happyareabean.cc/supportdiscord">
-  <img src="https://media.happyareabean.cc/other/static/icon/SimpleScoreboard-noborder.png" alt="SimpleScoreBoard" width="400"></a>
+  <img src="https://media.happyareabean.cc/other/static/simplescoreboard/icon/trimmed/logo.png" alt="SimpleScoreBoard" width="400"></a>
   <br>
     SimpleScoreBoard
   <br>
