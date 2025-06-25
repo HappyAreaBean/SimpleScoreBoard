@@ -85,7 +85,7 @@ SimpleScoreBoard would not be possible without these open source projects. ‚ù§Ô∏
     <img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi-button">
   </a>
 
-## You may also like...
+## Related
 
 - [SimpleJoinMessage](https://github.com/HappyAreaBean/SimpleJoinMessage) - A simple plugin to send message when player
   join w/ MiniMessage and PlaceholderAPI supported!
