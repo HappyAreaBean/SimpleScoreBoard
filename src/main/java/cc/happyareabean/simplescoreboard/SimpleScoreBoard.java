@@ -33,6 +33,7 @@ import dev.dejvokep.boostedyaml.settings.loader.LoaderSettings;
 import dev.dejvokep.boostedyaml.settings.updater.UpdaterSettings;
 import lombok.Getter;
 import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import revxrsal.commands.Lamp;
@@ -83,6 +84,8 @@ public final class SimpleScoreBoard extends JavaPlugin {
 
         getSLF4JLogger().info("SimpleScoreboard has been enabled! :)");
         getSLF4JLogger().info("by HappyAreaBean");
+
+        new Metrics(this, 26449);
     }
 
     @Override
