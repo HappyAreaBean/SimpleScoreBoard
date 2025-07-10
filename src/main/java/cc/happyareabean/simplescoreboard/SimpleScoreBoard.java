@@ -25,6 +25,7 @@ package cc.happyareabean.simplescoreboard;
 import cc.happyareabean.simplescoreboard.commands.ReloadCommand;
 import cc.happyareabean.simplescoreboard.listener.PlayerListener;
 import cc.happyareabean.simplescoreboard.manager.ScoreboardManager;
+import cc.happyareabean.simplescoreboard.utils.ModrinthUpdateChecker;
 import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.dvs.versioning.BasicVersioning;
 import dev.dejvokep.boostedyaml.settings.dumper.DumperSettings;
@@ -86,12 +87,27 @@ public final class SimpleScoreBoard extends JavaPlugin {
         getSLF4JLogger().info("by HappyAreaBean");
 
         new Metrics(this, 26449);
+
+        updateChecker();
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
         scoreboardManager.getUpdateTask().cancel();
+    }
+
+    public void updateChecker() {
+        new ModrinthUpdateChecker("simplescoreboard", "paper", null)
+                .checkVersion(version -> {
+                    if (getPluginMeta().getVersion().equals(version)) {
+                        getSLF4JLogger().info("SimpleScoreboard is up-to-date! (v{})", version);
+                        return;
+                    }
+
+                    getSLF4JLogger().warn("A new version of SimpleScoreboard is available! (v{})", version);
+                    getSLF4JLogger().warn("Download at: https://modrinth.com/plugin/simplescoreboard");
+                });
     }
 
     public boolean isPAPI() {
