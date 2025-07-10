@@ -33,6 +33,8 @@ dependencies {
     implementation 'io.github.revxrsal:lamp.common:4.0.0-rc.12'
     implementation 'io.github.revxrsal:lamp.bukkit:4.0.0-rc.12'
     implementation 'io.github.revxrsal:lamp.brigadier:4.0.0-rc.12'
+
+    implementation 'org.bstats:bstats-bukkit:3.0.2'
 }
 
 shadowJar {
@@ -40,6 +42,7 @@ shadowJar {
     relocate("fr.mrmicky.fastboard", "${packageName}.fastboard")
     relocate("revxrsal.commands", "${packageName}.lamp")
     relocate("dev.dejvokep.boostedyaml", "${packageName}.boostedyaml")
+    relocate("org.bstats", "${packageName}.bstats")
 }
 
 def targetJavaVersion = 21
