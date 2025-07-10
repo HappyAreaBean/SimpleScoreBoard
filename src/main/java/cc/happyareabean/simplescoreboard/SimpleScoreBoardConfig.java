@@ -22,7 +22,6 @@
 
 package cc.happyareabean.simplescoreboard;
 
-import dev.dejvokep.boostedyaml.YamlDocument;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import me.clip.placeholderapi.PlaceholderAPI;
@@ -59,41 +58,37 @@ public enum SimpleScoreBoardConfig {
     private final String path;
     private final Object defaultValue;
 
-    private YamlDocument getConfig() {
-        return SimpleScoreBoard.INSTANCE.getScoreboardConfig();
-    }
-
     public String toString() {
-        return getConfig().getOptionalString(path).orElse(path);
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalString(path).orElse(path);
     }
 
     public Component component() {
-        return getConfig().getOptionalString(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalString(path)
                 .map(MM::deserialize)
                 .orElse(Component.text(path));
     }
 
     public Component componentPAPI(Player player) {
-        return getConfig().getOptionalString(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalString(path)
                 .map(s -> SimpleScoreBoard.INSTANCE.isPAPI() ? PlaceholderAPI.setPlaceholders(player, s) : s)
                 .map(MM::deserialize)
                 .orElse(Component.text(path));
     }
 
     public Component component(TagResolver... resolvers) {
-        return getConfig().getOptionalString(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalString(path)
                 .map(s -> MM.deserialize(s, resolvers))
                 .orElse(Component.text(path));
     }
 
     public List<Component> componentList() {
-        return getConfig().getOptionalStringList(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalStringList(path)
                 .map(list -> list.stream().map(MM::deserialize).toList())
                 .orElse(List.of(Component.text(path)));
     }
 
     public List<Component> componentListPAPI(Player player) {
-        return getConfig().getOptionalStringList(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalStringList(path)
                 .map(list -> list.stream()
                         .map(s -> SimpleScoreBoard.INSTANCE.isPAPI() ? PlaceholderAPI.setPlaceholders(player, s) : s)
                         .map(MM::deserialize).toList())
@@ -101,13 +96,13 @@ public enum SimpleScoreBoardConfig {
     }
 
     public List<Component> componentList(TagResolver... resolvers) {
-        return getConfig().getOptionalStringList(path)
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalStringList(path)
                 .map(list -> list.stream().map(s -> MM.deserialize(s, resolvers)).toList())
                 .orElse(List.of(Component.text(path)));
     }
 
     public List<String> toStringList() {
-        return getConfig().getOptionalStringList(path).orElse(List.of(path));
+        return SimpleScoreBoard.INSTANCE.getScoreboardConfig().getOptionalStringList(path).orElse(List.of(path));
     }
 
     public boolean toBoolean() {
