@@ -40,9 +40,13 @@ dependencies {
 
 shadowJar {
     def packageName = "cc.happyareabean.simplescoreboard.libs"
-    relocate("fr.mrmicky.fastboard", "${packageName}.fastboard")
-    relocate("revxrsal.commands", "${packageName}.lamp")
-    relocate("dev.dejvokep.boostedyaml", "${packageName}.boostedyaml")
+
+    if (System.getenv("DEV") == null) {
+        relocate("fr.mrmicky.fastboard", "${packageName}.fastboard")
+        relocate("revxrsal.commands", "${packageName}.lamp")
+        relocate("dev.dejvokep.boostedyaml", "${packageName}.boostedyaml")
+    }
+
     relocate("org.bstats", "${packageName}.bstats")
 }
 
@@ -75,7 +79,7 @@ processResources {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.7")
+        minecraftVersion("1.21.8")
 
         downloadPlugins {
             hangar("PlaceholderAPI", "2.11.6")
