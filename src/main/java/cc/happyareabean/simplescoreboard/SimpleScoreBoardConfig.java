@@ -49,7 +49,24 @@ public enum SimpleScoreBoardConfig {
             " <white>● <gray>Lobby: <white>#1",
             " <white>● <gray>Players: <white>%bungee_total%",
             "",
-            "<gradient:#20BDFF:#A5FECB>ʜᴀᴘᴘʏᴀʀᴇᴀʙᴇᴀɴ.ᴄᴄ"
+            "<gradient:#20BDFF:#A5FECB>ᴍᴀᴅᴇ ᴡɪᴛʜ ❤ ʙʏ",
+            "  <gradient:#20BDFF:#A5FECB>ʜᴀᴘᴘʏᴀʀᴇᴀʙᴇᴀɴ"
+    )),
+
+    NUMBER_FORMATTING_ENABLE("numberFormatting.enable", false),
+    NUMBER_FORMATTING_LINES("numberFormatting.lines", List.of(
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
     )),
 
     UPDATE_INTERVAL("update-interval", 20),

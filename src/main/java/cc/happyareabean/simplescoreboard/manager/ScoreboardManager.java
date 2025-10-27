@@ -24,6 +24,7 @@ package cc.happyareabean.simplescoreboard.manager;
 
 import cc.happyareabean.simplescoreboard.SimpleScoreBoard;
 import cc.happyareabean.simplescoreboard.SimpleScoreBoardConfig;
+import cc.happyareabean.simplescoreboard.utils.BoardUtils;
 import fr.mrmicky.fastboard.adventure.FastBoard;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -49,6 +50,8 @@ public class ScoreboardManager {
             @Override
             public void run() {
 
+                boolean checkSameSize = BoardUtils.isLinesScoreSameSize();
+
                 boards.forEach((uuid, board) -> {
                     var player = Bukkit.getPlayer(uuid);
 
@@ -58,7 +61,15 @@ public class ScoreboardManager {
                     }
 
                     board.updateTitle(SimpleScoreBoardConfig.TITLE.componentPAPI(player));
-                    board.updateLines(SimpleScoreBoardConfig.LINES.componentListPAPI(player));
+
+                    if (SimpleScoreBoardConfig.NUMBER_FORMATTING_ENABLE.toBoolean() && checkSameSize) {
+                        board.updateLines(
+                                SimpleScoreBoardConfig.LINES.componentListPAPI(player),
+                                SimpleScoreBoardConfig.NUMBER_FORMATTING_LINES.componentListPAPI(player)
+                        );
+                    } else {
+                        board.updateLines(SimpleScoreBoardConfig.LINES.componentListPAPI(player));
+                    }
                 });
 
             }

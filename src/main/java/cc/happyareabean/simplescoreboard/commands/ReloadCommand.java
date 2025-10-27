@@ -23,6 +23,8 @@
 package cc.happyareabean.simplescoreboard.commands;
 
 import cc.happyareabean.simplescoreboard.SimpleScoreBoard;
+import cc.happyareabean.simplescoreboard.SimpleScoreBoardConfig;
+import cc.happyareabean.simplescoreboard.utils.BoardUtils;
 import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.CommandPlaceholder;
 import revxrsal.commands.annotation.Optional;
@@ -51,7 +53,15 @@ public class ReloadCommand {
             boolean success = SimpleScoreBoard.INSTANCE.getScoreboardConfig().reload();
             if (recreate != null) SimpleScoreBoard.INSTANCE.getScoreboardManager().recreate();
 
-            if (success) actor.reply(MM.deserialize("<gradient:#20BDFF:#A5FECB>Successfully reloaded SimpleScoreBoard."));
+            if (success)
+                actor.reply(MM.deserialize("<gradient:#20BDFF:#A5FECB>Successfully reloaded SimpleScoreBoard."));
+
+            if (!BoardUtils.isLinesScoreSameSize()) {
+                actor.reply(MM.deserialize("<gradient:#fc813f:#ef5f4f>⚠ <b>Warning:</b> You have custom number formatting enabled, but the lines and score do not have the same number of digits. " +
+                        "The custom formatting will be ignored until this issues is fixed.</gradient>"));
+                actor.reply(MM.deserialize("<color:#e8f742>⚠ Scoreboard Lines: <b><white>%s</white></b> <gray>|</gray> Score Lines: <b><white>%s</white></b>"
+                        .formatted(SimpleScoreBoardConfig.LINES.toStringList().size(), SimpleScoreBoardConfig.NUMBER_FORMATTING_LINES.toStringList().size())));
+                }
         } catch (IOException e) {
             actor.reply(MM.deserialize("<color:#e13b3b>Failed to reload SimpleScoreBoard! Check console for more information."));
             SimpleScoreBoard.INSTANCE.getSLF4JLogger().error("Failed to reload SimpleScoreBoard!", e);

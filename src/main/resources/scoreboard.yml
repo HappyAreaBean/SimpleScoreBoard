@@ -32,10 +32,31 @@ lines:
   - '<gradient:#20BDFF:#A5FECB>ᴍᴀᴅᴇ ᴡɪᴛʜ ❤ ʙʏ'
   - '  <gradient:#20BDFF:#A5FECB>ʜᴀᴘᴘʏᴀʀᴇᴀʙᴇᴀɴ'
 
+# Custom number formatting settings for scoreboard scores.
+# Default is disabled.
+#
+# Please ensure that the number of lines specified here matches
+# the number of lines in your scoreboard display.
+numberFormatting:
+  enable: false
+  lines:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+
 # Update interval for the scoreboard
 # In tick, 20 ticks = 1 second
 update-interval: 20
 
 # DO NOT TOUCH!
 # Changing this might lead to potentially destructive actions and loss of content.
-config-version: 1
+config-version: 2
