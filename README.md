@@ -52,7 +52,7 @@ And which makes me want to code a simple plugin just for the scoreboard.
 
 ## Download
 
-You can [download](https://modrinth.com/plugins/simplescoreboard) the latest version of SimpleScoreBoard in modrinth.
+You can [download](https://modrinth.com/plugin/simplescoreboard) the latest version of SimpleScoreBoard in modrinth.
 
 ## How To Use
 
